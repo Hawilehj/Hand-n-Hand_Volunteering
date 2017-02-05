@@ -1,0 +1,2 @@
+== 20170127174839 AddActivationToUsers: reverting =============================
+-- remove_column(:users, :activated_at, :datetime)

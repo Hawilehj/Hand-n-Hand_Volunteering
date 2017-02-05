@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :email
 
       t.timestamps
+
     end
   end
 end
