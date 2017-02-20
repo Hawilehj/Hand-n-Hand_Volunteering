@@ -4,7 +4,8 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    #@locations = Location.joins("INNER JOIN jobs ON jobs.id = locations.id")
+    @locations = Location.joins(:job)
   end
 
   # GET /locations/1

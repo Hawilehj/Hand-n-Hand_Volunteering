@@ -1,17 +1,7 @@
-<%= form_for(job) do |f| %>
-  <% if job.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+<%= form_for(@job) do |f| %>
+  <%= render 'shared/job_error_messages', object: @job %>
 
-      <ul>
-      <% job.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+    <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
@@ -26,9 +16,12 @@
     <%= f.datetime_select :date %>
   </div>
 
-  <div class="field">
-    <%= f.label :type %>
-    <%= f.text_field :type %>
+  <div class="form_row">
+    <label for="type">Type:</label>
+    <% ['Hospital', 'School', 'Church', 'Animal Shelter'].each do |type| %>
+     <%= radio_button_tag 'type', type, @type == params[:type] %>
+        <%= label_tag "type_#{type}", type.humanize %>
+        <% end %>
   </div>
 
   <div class="actions">
