@@ -1,29 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @location.address %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @location.state %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @location.zipcode %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @location.city %>
-</p>
-
-<p>
-  <strong>Organization:</strong>
-  <%= @location.organization %>
-</p>
+<% provide(:title, @location.org_name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @location.org_name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @location.jobs.any? %>
+    <h3>Jobs (<%= @location.jobs.count %></h3>
+        <ol class="jobs">
+          <%= render @jobs %>
+        </ol>
+        <%= will_paginate @jobs %>
+        <% end %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>

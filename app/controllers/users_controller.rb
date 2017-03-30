@@ -4,14 +4,15 @@ class UsersController < ApplicationController
   before_action :admin_user,  only: :destroy
 
   def index
-    @users =  User.where(name: 'Mitchell Koop')
-    #@users = User.paginate(:page => params[:page], :per_page => 5)
+    #@users =  User.where(name: 'Mitchell Koop')
+    @users = User.paginate(:page => params[:page], :per_page => 5)
     #@users = User.paginate(page: params[:page])
   end
 
   def show
     @user = User.find(params[:id])
   end
+
 
   def new
     @user = User.new
@@ -20,8 +21,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.account_activation(@user).deliver_now
-      flash[:info] = "Please check your email to activate your account"
+      @user.account_activations(@user).deliver_now
+      flash[:info] = "#{@user.name} please check your email to activate your account"
+      flash[:success] = "Welcome #{@user.name} to Hand in Hand Volunteering"
       redirect_to root_url
     else
       render 'new'

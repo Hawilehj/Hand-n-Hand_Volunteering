@@ -1,11 +1,28 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-
+  before_action :logged_in_user, only: [:create, :destroy]
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = Job.where(job_type: 'school')
   end
+
+  def school
+    @jobs = Job.where(job_type: 'school')
+  end
+
+  def hospital
+    @jobs = Job.where(job_type: 'hospital')
+  end
+
+  def animal_shelter
+    @jobs = Job.where(job_type: 'animal shelter')
+  end
+
+  def church
+    @jobs = Job.where(job_type: 'church')
+  end
+
 
   # GET /jobs/1
   # GET /jobs/1.json
@@ -68,6 +85,6 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:title, :text, :date, :type)
+      params.require(:job).permit(:title, :text, :date, :job_type)
     end
 end
