@@ -54,6 +54,7 @@ Rails.application.routes.draw do
 
   get '/show', to: 'locations#index'
   get '/newjob', to: 'jobs#new'
+  get '/newuser', to: 'users#new'
   get '/test', to: 'volunteer#login'
   get'/org', to: 'organizations#index'
   get '/addlocation', to: 'locations#new'

@@ -1,24 +1,23 @@
+<% provide(:title, @job.title) %>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @job.title %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @job.text %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @job.date %>
-</p>
 
 <p>
   <strong>Type:</strong>
   <%= @job.job_type %>
 </p>
+
+<div class="row">
+  <aside class="col-md-2">
+      <h1>
+        <%= @job.title %>
+      </h1>
+    <div class="col-sm-3 col-md-pull-3">
+      <%= @job.text %>
+      <%= @job.date %>
+    </div>
+  </aside>
+
+</div>
 
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>

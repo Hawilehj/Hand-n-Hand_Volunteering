@@ -1,4 +1,4 @@
-<% provide(:title, "Jobs") %>
+<% provide(:title, "Hospital Jobs") %>
 <p id="notice"><%= notice %></p>
 
 <h1>Hospital Jobs</h1>
@@ -23,7 +23,6 @@
         <td><%= job.job_type %></td>
         <td><%= link_to 'Show', job %></td>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

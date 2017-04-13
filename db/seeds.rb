@@ -49,3 +49,27 @@ User.create!(name:  "Mitchell Koop",
                activated: true,
                activated_at: Time.zone.now)
 end
+
+20.times do |a|
+  name = Faker::Name.name
+  email = "Org-#{a+1}@gmail.com"
+  password = "password"
+  Organization.create!(
+      name: name,
+      email: email,
+      password: password,
+      password_confirmation: password
+  )
+end
+
+5.times do |b|
+  title = "Help at job-#{b+1}"
+  text = "Entry text"
+  job_type = "hospital"
+Job.create!(
+       title: title,
+       text: text,
+       job_type: job_type,
+       date: Time.zone.now
+)
+end
