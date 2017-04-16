@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   # resources
   resources :jobs
-  resources :locations
+  resources :locations do
+    resources :jobs
+  end
   resources :organizations
   resources :users
   resources :account_activations, only: [:edit]

@@ -1,6 +1,12 @@
 <li id="job-<%= job.id %>">
   <span class="location"><%= link_to job.location.address, job.title %></span>
-  <span class="content">Title: <%= job.title %> <br> Text: <%= job.text %> </span>
+  <span class="content">
+    Title: <%= job.title %> <br>
+    Text: <%= job.text %>  <br>
+    Date: <%= job.date %> <br>
+    Type: <%= job.job_type %>
+
+  </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(job.created_at) %> ago.
   </span>
