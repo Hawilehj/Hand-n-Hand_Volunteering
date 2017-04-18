@@ -1,0 +1,2 @@
+module OrganizationResetsHelper
+end

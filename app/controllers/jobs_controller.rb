@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.where(job_type: 'school')
+    @jobs = Job.all
   end
 
   def school

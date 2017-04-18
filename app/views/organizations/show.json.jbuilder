@@ -1,1 +1,2 @@
 json.extract! @organization, :id, :name, :email, :password, :password_digest, :created_at, :updated_at
+json.extract! @location, :id, :address, :state, :zipcode, :city, :organization, :created_at, :updated_at

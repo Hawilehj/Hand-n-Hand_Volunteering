@@ -1,0 +1,40 @@
+<%= form_for([@location, @location.jobs.build]) do |f| %>
+    <div class="col-md-8">
+    <p>
+      <%= f.label :title, class: "col-md-5" %>
+      <%= f.text_field :title, class: "col-md-5" %>
+    </p>
+    <p>
+      <%= f.label :text, class: "col-md-5" %>
+      <%= f.text_area :text, class: "col-md-5" %>
+    </p>
+    </div>
+
+    <label for="field"class="col-md-push-3">Type:</label>
+    <div class="col-md-2">
+    <%= f.radio_button :job_type, 'hospital', class: "col-md-1" %>
+    <%= f.label :job_type, 'Hospital', :value => 'hospital', class: "col-md-1"%>
+    </div> <br>
+    <div class="col-md-2">
+    <%= f.radio_button :job_type, 'school', class: "col-md-1" %>
+    <%= f.label :job_type, 'School', :value => 'school', class: "col-md-1" %>
+    </div> <br>
+    <div class="col-md-2">
+    <%= f.radio_button :job_type, 'church', class: "col-md-1" %>
+    <%= f.label :job_type, 'Church', :value => 'church', class: "col-md-1" %>
+    </div> <br>
+    <div class="col-md-2">
+    <%= f.radio_button :job_type, 'animal shelter', class: "col-md-pull-1" %>
+    <%= f.label :job_type, 'Animal shelter', :value => 'animal shelter', class: "col-md-push-3" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= f.label :date, class: "col-md-2" %>
+      <%= f.datetime_select :date, class: "col-md-2" %>
+    </div>
+
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

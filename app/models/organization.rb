@@ -1,6 +1,7 @@
 class Organization < ApplicationRecord
-  has_many :locations, :through => :jobs
-  has_many :jobs
+  has_many :locations
+  has_many :jobs, :through => :locations
+  attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50}
   VALID_EMAIL_REGEX =/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -41,6 +42,20 @@ class Organization < ApplicationRecord
   #update_attribute(:activated, true)
   #update_attribute(:activated_at, Time.zone.now)
   #end
+
+  def create_reset_digest
+    self.reset_token = Organization.new_token
+    update_attribute(:reset_digest, Organization.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  def send_organization_reset_email
+    OrganizationMailer.organization_reset(self).deliver_now
+  end
+
+  def organization_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
 
   private
 

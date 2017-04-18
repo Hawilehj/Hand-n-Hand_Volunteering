@@ -5,7 +5,6 @@ class Location < ApplicationRecord
   validates :city, presence: true, length: { maximum: 50 }, allow_nil: true
   validates :org_name, presence: true, length: { maximum: 100}, allow_nil: true
   has_many :jobs, dependent: :destroy
-  has_many :users, :through => :jobs
-  has_many :organizations, :through => :jobs
+  belongs_to :organization, required: false
 
 end

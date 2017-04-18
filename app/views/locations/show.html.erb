@@ -20,34 +20,7 @@
   </div>
 </div>
 
-<%= form_for([@location, @location.jobs.build]) do |f| %>
-    <p>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </p>
-    <p>
-      <%= f.label :text %>
-      <%= f.text_area :text %>
-    </p>
+<%= render 'jobform'%>
 
-    <div class="field">
-      <%= f.label :date %>
-      <%= f.datetime_select :date %>
-    </div>
-
-    <label for="field">Type:</label>
-    <%= f.radio_button :job_type, 'hospital' %>
-    <%= f.label :job_type, 'Hospital', :value => 'hospital' %>
-    <%= f.radio_button :job_type, 'school' %>
-    <%= f.label :job_type, 'School', :value => 'school' %>
-    <%= f.radio_button :job_type, 'church' %>
-    <%= f.label :job_type, 'Church', :value => 'church' %>
-    <%= f.radio_button :job_type, 'animal shelter' %>
-    <%= f.label :job_type, 'Animal shelter', :value => 'animal shelter' %>
-
-    <p>
-      <%= f.submit %>
-    </p>
-<% end %>
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>

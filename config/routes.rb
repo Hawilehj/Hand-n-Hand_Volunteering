@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
 
 
+  get 'organization_resets/new'
+
+  get 'organization_resets/edit'
+
   # resources
   resources :jobs
+  resources :locations
+
+  resources :organizations do
+    resources :locations
+  end
+
   resources :locations do
     resources :jobs
   end
@@ -11,6 +21,7 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :jobs, only: [:create, :destroy]
+  resources :organization_resets, only: [:new, :create, :edit, :update]
 
   # Root
   root 'volunteer#index'
