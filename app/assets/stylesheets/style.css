@@ -29,12 +29,42 @@ h3 {
     font-weight: 300;
     color: #555;
     line-height: 30px;
+    margin: -10px 0 -26px;
 }
 
-img { max-width: 100%; }
 
 ::-moz-selection { background: #de995e; color: #fff; text-shadow: none; }
 ::selection { background: #de995e; color: #fff; text-shadow: none; }
+
+#job_date_1i{
+    color: #000000;
+    width: 70px;
+}
+
+#job_date_2i{
+    color: #000000;
+    width: 100px;
+}
+
+#job_date_3i{
+    color: #000000;
+    width: 50px;
+}
+
+#job_date_4i{
+    color: #000000;
+    width: 50px;
+}
+
+#job_date_5i{
+    color: #000000;
+    width: 50px;
+}
+
+
+
+
+
 
 
 .btn-link-1 {

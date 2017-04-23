@@ -1,14 +1,31 @@
-<li id="job-<%= job.id %>">
-  <span class="location"><%= link_to job.location.address, job.title %></span>
-  <span class="content">
-    Title: <%= job.title %> <br>
-    Text: <%= job.text %>  <br>
-    Date: <%= job.date %> <br>
-    Type: <%= job.job_type %>
-
-  </span>
-  <span class="timestamp">
+ <span class="content">
+<div class="col-xs-12" data-filter="paid">
+  <div class="event-simple-item">
+    </div>
+    <h3 class="event-simple-title"> <%= job.title %> </h3>
+    <div class="event-simple-text">
+      <%= job.text %>
+    </div>
+    <div class="event-simple-bottom">
+      <div class="event-simple-bottom-info">
+        <div class="event-simple-info-lable">Location</div>
+        <%= job.location.address %>
+      </div>
+      <div class="event-simple-bottom-info">
+        <div class="event-simple-info-lable">Date & Time</div>
+        <%= job.date  %>
+      </div>
+      <div class="event-simple-bottom-info">
+        <div class="event-simple-info-lable">Job Type</div>
+        <%= job.job_type  %>
+      </div>
+      <a href="" class="event-simple-bottom-btn btn btn-rounded">Register</a>
+    </div>
+  </div>
+    </div>
+    <span class="timestamp">
     Posted <%= time_ago_in_words(job.created_at) %> ago.
   </span>
+ </span>
 
-</li>
+
