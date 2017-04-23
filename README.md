@@ -1,6 +1,6 @@
-# Ruby on Rails Tutorial sample application
+# Ruby on Rails Hand-n-Hand Volunteering application
 
-This is the sample application for
+This is the Hand-n-Hand Volunteering application with a foundation based off of
 [*Ruby on Rails Tutorial:
 Learn Web Development with Rails*](http://www.railstutorial.org/)
 by [Michael Hartl](http://www.michaelhartl.com/).
