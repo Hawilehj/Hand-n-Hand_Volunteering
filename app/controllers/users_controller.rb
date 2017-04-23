@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user,  only: :destroy
 
   def index
+    #@users =  User.where(name: 'Mitchell Koop')
     @users = User.paginate(:page => params[:page], :per_page => 5)
     #@users = User.paginate(page: params[:page])
   end
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(user)
+    redirect_to(root_url) unless current_user?(@user)
   end
 
   def admin_user

@@ -1,14 +1,13 @@
 <%= form_for([@location, @location.jobs.build]) do |f| %>
     <div class="col-md-8">
-    <div>
-      <%= f.label :title, class: "col-md-3" %>
+    <p>
+      <%= f.label :title, class: "col-md-5" %>
       <%= f.text_field :title, class: "col-md-5" %>
-    </div>
-      <br><br>
-    <div>
-      <%= f.label :text, class: "col-md-3" %>
+    </p>
+    <p>
+      <%= f.label :text, class: "col-md-5" %>
       <%= f.text_area :text, class: "col-md-5" %>
-    </div>
+    </p>
     </div>
 
     <label for="field"class="col-md-push-3">Type:</label>
@@ -29,15 +28,13 @@
     <%= f.label :job_type, 'Animal shelter', :value => 'animal shelter', class: "col-md-push-3" %>
     </div>
 
-    <div class="col-md-8">
-      <%= f.label :date, class: "col-md-3" %>
-      <div class="col-md-8">
+    <div class="col-md-3">
+      <%= f.label :date, class: "col-md-2" %>
       <%= f.datetime_select :date, class: "col-md-2" %>
     </div>
-    </div>
 
 
-    <div>
-      <%= f.submit class:"event-simple-bottom-btn btn btn-rounded"%>
-    </div>
+    <p>
+      <%= f.submit %>
+    </p>
 <% end %>

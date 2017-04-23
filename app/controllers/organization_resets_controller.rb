@@ -51,4 +51,3 @@ class OrganizationResetsController < ApplicationController
       redirect_to new_organization_reset_url
     end
   end
-end

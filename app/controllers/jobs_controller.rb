@@ -1,22 +1,11 @@
 class JobsController < ApplicationController
-  #These actions are to check prior for jobs controller
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  # An org is required to be logged in to create or destroy
-  before_action :logged_in_organization, only: [:create, :destroy]
-
-  # The two comments below are generated from rails, rather generic will appear for other
-  # controllers that have been generated from command line
+  before_action :logged_in_user, only: [:create, :destroy]
   # GET /jobs
   # GET /jobs.json
-
-
   def index
-    # Any where .paginate is acts as a function to create pages based on
-    # how many lists per page (ex. 10 per page)
-    @jobs = Job.paginate(page: params[:page], :per_page => 5)
+    @jobs = Job.all
   end
-
-  #The 4 below are filtered by type that I have specified on the view, and have a specific page for each
 
   def school
     @jobs = Job.where(job_type: 'school')
@@ -34,10 +23,9 @@ class JobsController < ApplicationController
     @jobs = Job.where(job_type: 'church')
   end
 
-  # Generated comment
-    # GET /jobs/1
-    # GET /jobs/1.json
 
+  # GET /jobs/1
+  # GET /jobs/1.json
   def show
   end
 
@@ -52,10 +40,6 @@ class JobsController < ApplicationController
 
   # POST /jobs
   # POST /jobs.json
-
-  # Here comes the fun part so location is the parent table and jobs is the child table
-  # thus each job refers back to the parent table which allows on the view for jobs to be
-  # created directly within each location page
   def create
     @location = Location.find(params[:location_id])
     @job = @location.jobs.create(job_params)

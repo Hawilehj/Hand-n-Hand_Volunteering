@@ -1,10 +1,9 @@
 <footer class="footer">
   <nav>
-      <div class="footer-bottom">
-        <div class="container">
-          <div class="footer-copyright">© Hand-in-Hand Volunteering. All rights reserved.</div>
-          <div class="footer-caption">Created by Spencer Torrico & Joseph Hawileh</div>
-        </div>
-      </div>
+    <ul>
+      <li><%= link_to "About",   about_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+      <%= debug(params) if Rails.env.development? %>
+    </ul>
   </nav>
 </footer>

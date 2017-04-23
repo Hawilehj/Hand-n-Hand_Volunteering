@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
   get 'organization_resets/new'
+
   get 'organization_resets/edit'
 
   # resources
@@ -14,7 +16,6 @@ Rails.application.routes.draw do
   resources :locations do
     resources :jobs
   end
-
   resources :organizations
   resources :users
   resources :account_activations, only: [:edit]
@@ -49,6 +50,8 @@ Rails.application.routes.draw do
   post '/signin', to: 'org_sessions#create'
   delete 'signout', to: 'org_sessions#destroy'
 
+
+
   # user password reset
   get 'password_resets/new'
   get 'password_resets/edit'
@@ -68,6 +71,8 @@ Rails.application.routes.draw do
   get '/test', to: 'volunteer#login'
   get'/org', to: 'organizations#index'
   get '/addlocation', to: 'locations#new'
+
+
 
 end
 

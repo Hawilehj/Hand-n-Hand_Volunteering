@@ -17,8 +17,4 @@ module OrgSessionsHelper
     @current_organization = nil
   end
 
-  def current_organization?(organization)
-    organization == current_organization
-  end
-
 end

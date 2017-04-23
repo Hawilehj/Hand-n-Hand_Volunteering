@@ -4,7 +4,8 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    # .paginate is defined under jobs_controller
+    #@locations = Location.joins("INNER JOIN jobs ON jobs.id = locations.id")
+    #@locations = Location.joins(:job)
     @locations = Location.paginate(page: params[:page])
   end
 
